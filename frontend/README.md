@@ -123,4 +123,4 @@ The system supports the following grades:
 
 ## License
 
-This is a portfolio project.
+MIT License - This is a portfolio project and is free to use for educational purposes.

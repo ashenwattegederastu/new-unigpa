@@ -10,13 +10,15 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for token in localStorage on mount
-    const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('user');
-    
-    if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(JSON.parse(storedUser));
+    // Check for token in localStorage on mount (client-side only)
+    if (typeof window !== 'undefined') {
+      const storedToken = localStorage.getItem('token');
+      const storedUser = localStorage.getItem('user');
+      
+      if (storedToken && storedUser) {
+        setToken(storedToken);
+        setUser(JSON.parse(storedUser));
+      }
     }
     setLoading(false);
   }, []);
@@ -39,8 +41,10 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
       const { token, user } = data;
 
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+      }
       setToken(token);
       setUser(user);
 
@@ -72,8 +76,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+    }
     setToken(null);
     setUser(null);
   };

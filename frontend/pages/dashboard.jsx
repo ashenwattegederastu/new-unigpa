@@ -248,7 +248,7 @@ export default function Dashboard() {
                       onChange={(e) => setFormData({ ...formData, startYear: e.target.value })}
                       placeholder="2020"
                       min="1900"
-                      max="2100"
+                      max="2040"
                     />
                   </div>
 
@@ -260,7 +260,7 @@ export default function Dashboard() {
                       onChange={(e) => setFormData({ ...formData, endYear: e.target.value })}
                       placeholder="2024"
                       min="1900"
-                      max="2100"
+                      max="2040"
                     />
                   </div>
                 </div>
