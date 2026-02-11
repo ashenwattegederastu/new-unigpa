@@ -1,0 +1,23 @@
+{
+  "name": "unigpa-frontend",
+  "version": "1.0.0",
+  "description": "University GPA Calculator - Frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "nextra": "^2.13.0",
+    "nextra-theme-docs": "^2.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^14.0.0"
+  }
+}
